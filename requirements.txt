@@ -1,4 +1,5 @@
 langchain
+llama-cloud-services
 google-generativeai
 streamlit
 langchain-google-genai
