@@ -128,18 +128,16 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 ## 👥 Auteurs
 
-- [Votre Nom] - *Développement initial*
+- [SEBEOGO Landry Yves Joel] 
+- [BADOLO Christian Thomas] 
+- [NABI Daniel] 
+- [TRAORE Mounira] 
 
-## 📫 Contact
-
-Pour toute question ou suggestion, n'hésitez pas à :
-- Ouvrir une issue
-- Envoyer un email à [votre-email]
-- [Autres moyens de contact]
 
 ## 🙏 Remerciements
 
 - Google pour l'API Gemini Pro
 - L'équipe Streamlit pour leur excellent framework
 - La communauté LangChain pour leurs outils et leur support
+-Aux contributeurs
 
