@@ -1,20 +1,35 @@
 import os
+from pathlib import Path
 
 class MarkdownLoader:
     @staticmethod
-    def load_markdown(file_path):
+    def load_markdown(company_name: str) -> str:
         """
-        Charge le contenu d'un fichier Markdown depuis un chemin donné et retourne le fichier et son contenu.
+        Charge le contenu du fichier Markdown correspondant à la compagnie d'assurance.
         
-        :param file_path: Chemin d'accès au fichier Markdown
-        :return: Tuple contenant le fichier et son contenu
+        Args:
+            company_name (str): Nom de la compagnie d'assurance
+            
+        Returns:
+            str: Contenu du fichier Markdown
         """
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"Le fichier {file_path} n'a pas été trouvé.")
+        # Chemin vers le dossier des données
+        #data_dir = Path('src\parsers\results')
+
+        # Correct way to define a cross-platform path
+        data_dir = Path("src") / "parsers" / "results"
+
+
+        # Construction du chemin du fichier
+        filename = f"{company_name}.md"
+        file_path = data_dir / filename
         
         try:
+            if not file_path.exists():
+                raise FileNotFoundError(f"Le fichier {filename} n'existe pas dans {data_dir}")
+                
             with open(file_path, 'r', encoding='utf-8') as file:
-                content = file.read()
-            return file_path, content
+                return file.read()
+                
         except Exception as e:
-            raise Exception(f"Erreur lors de la lecture du fichier: {str(e)}")
+            raise Exception(f"Erreur lors du chargement du fichier {filename}: {str(e)}")

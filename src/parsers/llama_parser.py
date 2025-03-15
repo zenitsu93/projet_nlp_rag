@@ -2,6 +2,15 @@ import os
 import nest_asyncio
 from llama_cloud_services import LlamaParse
 
+import sys
+import os
+
+# Ajouter le dossier "src" au chemin d'importation
+sys.path.append(os.path.abspath("src"))
+
+# Maintenant, on peut importer
+from config import Config 
+
 nest_asyncio.apply()
 
 class LlamaParser:
@@ -36,16 +45,18 @@ class LlamaParser:
 
 
 
-# api_key = "api_key"  # Remplacer par votre clé d'API
+api_key = Config.LLAMA_CLOUD_API_KEY  # Remplacer par votre clé d'API
 
 # # Instanciation de la classe LlamaParser avec les paramètres souhaités
-# parser = LlamaParser(
-#     api_key=api_key,
-#     result_type="markdown",
-#     num_workers=4,
-#     language="en",
-#     parsing_instruction=None
-# )
+parser = LlamaParser(
+     api_key=api_key,
+     result_type="markdown",
+     num_workers=4,
+     language="en",
+     parsing_instruction=None
+ )
 
 # # Appel de la méthode unique qui parse le document et l'enregistre en Markdown
-# parser.parse_and_save("chemin/vers/le/fichier.pdf", "chemin/vers/le/fichier.md")
+parser.parse_and_save(r"data\balance_commerciale_2020-1.pdf", "src/parsers/results/balance_commerciale_2020-1.md")
+# parser.parse_and_save("data\BF-Etats-financiers-2020.pdf", "src/parsers/results/BF-Etats-financiers-2020.md")
+# parser.parse_and_save("data\BURKINA FASO_Constitution.pdf", "src/parsers/results/BURKINA FASO_Constitution.md")

@@ -10,3 +10,6 @@ chromadb
 pypdf
 PyPDF2
 transformers
+sentence-transformers
+numpy
+pathlib
