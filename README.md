@@ -53,6 +53,8 @@ pip install -r requirements.txt
 ```bash
 # Créez un fichier .env à la racine du projet
 GOOGLE_API_KEY=votre_clé_api_google
+LLAMA_CLOUD_API_KEY=votre_clé_api_LLama
+
 ```
 
 ## 🚀 Utilisation
@@ -102,11 +104,6 @@ python cli.py -d balance_commerciale_2020-1 -q "Quelle est la balance commercial
 │       ├── balance_commerciale_2020-1.md
 │       ├── BF-Etats-financiers-2020.md
 │       └── BURKINA FASO_Constitution.md
-├── tests/                         # Tests unitaires et d'intégration
-│   ├── __init__.py
-│   ├── test_vector_store.py
-│   ├── test_response_generator.py
-│   └── test_markdown_loader.py
 ├── cli.py                         # Interface en ligne de commande
 ├── requirements.txt               # Dépendances du projet
 ├── .env.example                   # Exemple de configuration des variables d'environnement
