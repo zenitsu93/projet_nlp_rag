@@ -70,7 +70,7 @@ streamlit run src/app.py
 
 ### Interface CLI
 
-Pour une utilisation en ligne de commande :
+Pour une utilisation en ligne de commande  suivez ce script:
 
 ```bash
 python cli.py -d [nom_du_document] -q "Votre question ici"
