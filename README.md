@@ -86,19 +86,33 @@ python cli.py -d balance_commerciale_2020-1 -q "Quelle est la balance commercial
 ```
 .
 ├── src/
-│   ├── app.py                    # Application Streamlit
+│   ├── app.py                      # Application Streamlit principale
 │   ├── config/
-│   │   └── globals.py           # Configuration globale
+│   │   ├── __init__.py
+│   │   └── globals.py              # Configuration globale et constantes
 │   ├── models/
-│   │   ├── vector_store.py      # Gestion des embeddings et recherche
-│   │   └── response_generator.py # Génération des réponses
+│   │   ├── __init__.py
+│   │   ├── vector_store.py         # Gestion de l'indexation et recherche vectorielle
+│   │   └── response_generator.py    # Génération des réponses avec Gemini
 │   └── parsers/
-│       └── markdown_loader.py    # Chargement des documents
+│       ├── __init__.py
+│       └── markdown_loader.py       # Chargement et parsing des documents
 ├── data/
-│   └── markdown/                 # Documents source
-├── cli.py                        # Interface en ligne de commande
-├── requirements.txt              # Dépendances du projet
-└── README.md                     # Documentation
+│   └── markdown/                   # Documents source au format Markdown
+│       ├── balance_commerciale_2020-1.md
+│       ├── BF-Etats-financiers-2020.md
+│       └── BURKINA FASO_Constitution.md
+├── tests/                         # Tests unitaires et d'intégration
+│   ├── __init__.py
+│   ├── test_vector_store.py
+│   ├── test_response_generator.py
+│   └── test_markdown_loader.py
+├── cli.py                         # Interface en ligne de commande
+├── requirements.txt               # Dépendances du projet
+├── .env.example                   # Exemple de configuration des variables d'environnement
+├── .gitignore                    # Fichiers et dossiers ignorés par Git
+├── README.md                     # Documentation principale
+└── rapport_technique.txt         # Documentation technique détaillée
 ```
 
 ## 🤝 Contribution
