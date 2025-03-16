@@ -2,12 +2,12 @@
 from langchain.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains.question_answering import load_qa_chain
-
+from langchain_core.documents import Document
 def generate_response(question, vector_index, api_key, model_name="gemini-1.5-flash"):
     """
     Génère une réponse à partir de la question et du contexte fourni par l'index vectoriel.
     """
-    docs = vector_index.search(question)
+    docs = vector_index.similarity_search(question)
     prompt_template =  """
         Tu es un expert universel doté d'une expertise approfondie dans tous les domaines. 
         Ta mission est de répondre aux questions de l'utilisateur en te basant **exclusivement** sur le contexte fourni. 
@@ -30,7 +30,11 @@ def generate_response(question, vector_index, api_key, model_name="gemini-1.5-fl
         """
     
     prompt = PromptTemplate(template=prompt_template, input_variables=['context', 'question'])
-    model = ChatGoogleGenerativeAI(model=model_name, temperature=0.3, api_key=api_key)
+    model = ChatGoogleGenerativeAI(model=model_name, temperature=0.2, api_key=api_key)
     chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
+    
+
+    # Convertir les chaînes en objets Document si nécessaire
+    docs = [Document(page_content=doc) if isinstance(doc, str) else doc for doc in docs]
     response = chain({"input_documents": docs, "question": question}, return_only_outputs=True)
     return response['output_text']

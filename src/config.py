@@ -1,5 +1,8 @@
 import os
+from dotenv import load_dotenv
 
+# Chargement des variables d'environnement
+load_dotenv()
 class Config:
     LLAMA_CLOUD_API_KEY = os.getenv("LLAMA_CLOUD_API_KEY")
     GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
@@ -11,4 +14,3 @@ class SPEAKER_TYPES:
 
 
 initial_prompt = {"role": SPEAKER_TYPES.BOT, "content": "Comment puis je vous aider aujourd'hui?"}
-

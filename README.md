@@ -89,9 +89,8 @@ python cli.py -d balance_commerciale_2020-1 -q "Quelle est la balance commercial
 .
 ├── src/
 │   ├── app.py                      # Application Streamlit principale
-│   ├── config/
-│   │   ├── __init__.py
-│   │   └── globals.py              # Configuration globale et constantes
+│   ├── config.py
+│   │   
 │   ├── models/
 │   │   ├── __init__.py
 │   │   ├── vector_store.py         # Gestion de l'indexation et recherche vectorielle
